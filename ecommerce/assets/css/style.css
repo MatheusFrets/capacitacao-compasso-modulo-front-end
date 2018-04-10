@@ -1,0 +1,67 @@
+.main-header {
+    background: #DF8686;
+    float: left;
+    clear: both;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-top: 0%;
+}
+.main-header .container-img {
+    margin-left: 10%;
+    margin-top: 5%; 
+    text-align: left;
+}
+
+.main-header .container-img img{
+    width: 200px;
+    height: 100px;
+    border: 3px solid #000;
+
+}
+.main-header .label-minhaconta {
+    float: right;
+    border: 2px solid greenyellow;
+    color: #000;
+    background: greenyellow;
+}
+.main-header .label-login {
+    float: right;
+    border: 2px solid greenyellow;
+    background: greenyellow;
+    text-align: center;
+    margin-right: 10%;
+    
+    
+}
+
+/*header menu*/
+
+.menu {
+    background:#000;
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+.menu .container-item {
+    padding: 0 10%;
+    list-style: none;
+
+}
+
+.menu .container-item .item {
+    float: left;
+    width: calc(100% / 9);
+    text-align: center;
+}
+
+.menu .container-item .item a {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    
+}
+
+.menu .container-item .item a:hover {
+    cursor: pointer;
+    color: green;
+}
