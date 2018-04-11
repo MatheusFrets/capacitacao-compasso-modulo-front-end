@@ -1,67 +1,227 @@
+*{
+    margin: 0;
+	padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
 .main-header {
-    background: #DF8686;
+    background: red;
+    height: 300px;
+}
+.main-header .main-logo{
+    
     float: left;
-    clear: both;
-    width: 100%;
-    margin-bottom: 30px;
-    padding-top: 0%;
-}
-.main-header .container-img {
-    margin-left: 10%;
-    margin-top: 5%; 
-    text-align: left;
-}
-
-.main-header .container-img img{
-    width: 200px;
-    height: 100px;
-    border: 3px solid #000;
-
-}
-.main-header .label-minhaconta {
-    float: right;
-    border: 2px solid greenyellow;
-    color: #000;
-    background: greenyellow;
-}
-.main-header .label-login {
-    float: right;
-    border: 2px solid greenyellow;
-    background: greenyellow;
+    position: relative;
+    top: 100px;
     text-align: center;
-    margin-right: 10%;
-    
-    
+    padding: 5px 5px 5px 5px;
+}
+.main-header .main-logo img{
+	width: 200px;
+    height: 100px;
+    border: 3px solid #fff;
 }
 
-/*header menu*/
-
-.menu {
-    background:#000;
-    width: 100%;
+.main-header .main-account{
+    float: right;
+}
+.main-header .main-account a{
+    background-color: #000;
+    color: #fff;
     float: left;
-    padding: 15px;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
 }
-.menu .container-item {
-    padding: 0 10%;
-    list-style: none;
-
+.main-header .main-search{
+    float: right;
+    position: absolute;
+    top: 125px;
+    width: calc(100% - 400px);
+    right: 0;
 }
 
-.menu .container-item .item {
+.main-header .main-search form{
+    width: 100%;    
+}
+
+.main-header .main-search  input{
+    width: 100%;
+    border: 4px solid #000000;
+    box-sizing: border-box;
+    padding: 10px;
+}
+/*menu*/
+
+.main-navbar{
+    width: 100%;
+    background-color: #000;
+    height: 40px;
+    padding-top: 20px;
+}
+
+.main-navbar .nav-list{
+    list-style-type: none;
+    text-align: center;
+}
+
+.main-navbar .nav-list .item{
+    box-sizing: border-box;
+    color: #fff;
     float: left;
     width: calc(100% / 9);
-    text-align: center;
 }
 
-.menu .container-item .item a {
-    color: #ffffff;
-    font-size: 18px;
+.main-navbar .nav-list .item a{
     text-decoration: none;
+    color: #fff;
+}
+/*banner*/
+
+.banner {
+    height: 400px;
+    top: 40px;
     
 }
+.banner .ban-img {
+    float: left;
+    padding: 5px 5px 5px 5px;
 
-.menu .container-item .item a:hover {
-    cursor: pointer;
-    color: green;
+}
+
+.banner .banner-img img {
+    width: 400px;
+    height: 350px;
+}
+
+.banner .ban-text {
+    float: right;
+    width: calc(100% - 450px);
+    padding: 30px 5px 5px 5px;
+
+}
+.banner .ban-text p{
+    width: 100%;
+    font-size: 20px;  
+    position: relative;
+    right: 0;
+}
+.banner .ban-text a{
+    text-align: center; 
+    color: #000;
+    font-size: 25px;
+    text-decoration: none;
+}
+.novidades {
+    height: 400px;
+    top: 40px;
+    
+}
+.novidades .nov-img img {
+    float: left;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 200px;
+    height: 250px;
+    position: relative;
+}
+.novidades .novidades-prod {
+    float: left;
+    height: 350px;
+    width: calc(100% / 3);
+    
+}
+.novidades .novidades-prod p {
+    text-align: center;
+    font-size: 20px;
+}
+.novidades .pnovidade {
+    text-align: left;
+    font-size: 20px;
+    padding: 10px;
+
+}
+.novidades .novidades-prod .prod{
+    text-align: center;
+    font-size: 25px;
+    color: red;
+}
+.novidades .novidades-prod .preco{
+    text-align: center;
+    font-size: 16px;
+    color: red;
+}
+.main-footer {
+    float: left;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    background: #000;
+    margin-top: 1px;
+}
+.final {
+    height: 200px;
+    top: 40px;
+    background-color: red;
+}
+.final .final-inst {
+    list-style: none;
+    height: 350px;
+    width: calc(98% / 3);
+    float: left;
+
+
+}
+.final .final-inst .inst {
+
+    text-decoration: none;
+    color: #000;
+    text-align: left;
+    font-size: 25px;
+}
+
+.final .final-inst .minhaconta {
+    
+        text-decoration: none;
+        color: #000;
+        text-align: left;
+        font-size: 25px;
+    }
+.final .final-inst .menuzin {
+    color: #000;
+    text-decoration: none;
+    text-align: left;
+    font-size: 15px;
+}
+.final .final-inst .ul-list {
+    padding-left: 20px;
+    list-style: none;
+}
+.final .final-inst .ul-list li{
+    margin: 10px 0;
+}
+.final .final-inst .search{
+    float: left;
+    position: absolute;
+
+}
+.final .final-inst .search input{
+    width: 300px;
+    
+    box-sizing: border-box;
+    padding: 10px;
+    
+}
+.final .final-inst form{
+    width: 100%;    
+}
+.final .final-inst .ul-list .face img{
+    height: 50px;
+    margin-top: 60px;
+    margin-right: 20px;
+      
 }
