@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input type="text" id="txt_1">
+        <input type="text" id="txt_2">
+        <input type="text" id="txt_result">
+
+        <script>
+            var $input_1 = document.getElementById('txt_1');
+            var $input_2 = document.getElementById('txt_2');
+            var $input_result = document.getElementById('txt_result');
+
+
+            $input_result.onclick = function(){
+                $input_result.value = parseInt($input_1.value) + parseInt($input_2.value);
+            }
+            $input_result.onblur = function(){
+                $input_result.value = '';
+                $input_1.value = '';
+                $input_2.value = '';
+            }
+        </script>
+</body>
+</html>
