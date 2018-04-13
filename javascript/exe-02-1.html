@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #container-resultado {
+            display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <form action="js-teste" id="frm-busca">
+        <input type="search" id="campo-busca">
+    </form>
+    <div id="container-resultado">
+        <h2>Sugestoes de busca</h2>
+        <div id="sugestoes-produtos"></div>
+        <div id="resultado-busca"></div>
+    </div>
+    
+    <script>
+        "use strict"; //obriga inicializar todas as variaveis
+        var $debug = true;
+        var $campo_busca = document.getElementById('campo-busca');
+        var $container_resultados = document.getElementById('container-resultado');
+        var $sugestoes_produtos = document.getElementById('sugestoes-produtos');
+        var $resultado_busca = document.getElementById('resultado-busca');
+
+
+        var $ar_sugestoes_produtos = [
+            "Detergente",
+            "Cafe",
+            "Erva",
+            "Cerveja"
+        ];
+
+        //array de sugestoes de produto
+        var $ar_resultado_busca = [
+            {
+                "nome" : "Computador Dell",
+                "descricao" : "textodasdajujdasoppoda",
+                "img" : "http://www.kazadosom.com.br/image/cache/data/icone-500x500.png",
+                "link" : "http://compasso.com.br",
+                "preco" : 10.5
+            },
+            {
+                "nome" : "Notebook hp",
+                "descricao" : "cdcd cdcdc dcd",
+                "img" : null,
+                "link" : "http://compasso.com.br",
+                "preco" : 14.5
+            },
+            {
+                "nome" : "Mouse multilaser",
+                "descricao" : "rapaz q mause bao bicho",
+                "img" : null,
+                "link" : "http://compasso.com.br",
+                "preco" : 1438.5
+            }
+        ];
+
+cl($ar_resultado_busca);
+        function renderizaSugestoes(){
+            var $retorno = "";
+            for(var $i in $ar_sugestoes_produtos){
+                //cl($ar_sugestoes_produtos[$i]);
+                $retorno += "<p>"+$ar_sugestoes_produtos[$i]+"<p>";
+            };
+           
+            $sugestoes_produtos.innerHTML = $retorno;
+        };
+
+        //renderizaSugestoes();
+
+        function cl($msg){
+            if($debug) console.log($msg);
+
+        };
+
+        $campo_busca.onfocus = function(){
+            cl('entrou no campo');
+            $container_resultados.style.display = "block";
+
+            if(this.value.lenght === 0){
+                cl('exibe sugestoes esconde lista');
+                $sugestoes_produtos.style.display = "block";
+                $resultado_busca.style.display = "none";
+            }else{
+                cl('exibe lista esconde lista');
+                $sugestoes_produtos.style.display = "none";
+                $resultado_busca.style.display = "block";
+            }
+        };
+
+        $campo_busca.onfocu = function(){
+            cl('entrou no campo');
+            $container_resultados.style.display = "block";
+
+            if(this.value.lenght === 0){
+                cl('exibe sugestoes esconde lista');
+                $sugestoes_produtos.style.display = "block";
+                $resultado_busca.style.display = "none";
+            }else{
+                cl('exibe lista esconde lista');
+                $sugestoes_produtos.style.display = "none";
+                $resultado_busca.style.display = "block";
+            }
+        };
+
+        function renderizaResultadoBusca(){
+            var $retorno = "";
+            for(var $i in $ar_resultado_busca){
+                $retorno += "<div>"+"<h3>"+ $ar_resultado_busca[$i].nome+"</h3>"+
+                "<img src='"+$ar_resultado_busca[$i].img+"'>"+
+                "<p>"+$ar_resultado_busca[$i].descricao+"</p>"+
+                "<p>"+$ar_resultado_busca[$i].preco+"</p>"+
+                "<a href='"+$ar_resultado_busca[$i].link+"'>Veja mais</a>"+
+                "</div>";
+            }
+
+            $resultado_busca.innerHTML = $retorno;
+        };
+
+        $campo_busca.onblur = function(){
+            cl('saiu no campo');
+            if(this.value.lenght === 0);
+            $container_resultados.style.display = "none";
+        };
+        renderizaSugestoes();
+        renderizaResultadoBusca();
+    </script>
+
+
+
+
+
+</body>
+</html>
