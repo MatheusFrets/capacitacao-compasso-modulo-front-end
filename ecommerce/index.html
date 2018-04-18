@@ -6,7 +6,10 @@
     <title>Centauro</title>
     <meta charset="utf-8">
     <meta name="author" content="Matheus Freitas">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 
 <body>
@@ -25,8 +28,10 @@
             </div>
             <div class="main-search">
                 <form action="#">
-                    <input type="search" placeholder="Pesquisar">
+                    <input type="search" id="campo-busca" placeholder="Pesquisar">
                 </form>
+                <div id="main-sugestoes"></div>
+                <div id="main-resultados"></div>
             </div>
         </div>
     </header>
@@ -67,22 +72,12 @@
     </section>
     <section class="banner">
         <div class="container">
-            <div class="ban-img">
-                <figure class="banner-img">
-                    <img src="assets/img/album01.jpg" title="banner" alt="banner copa" />
-                </figure>
-            </div>
-            <div class="ban-text">
-                <p>Mesmo a pouco mais de dois meses para a Copa do Mundo na Rússia, cuja estreia ocorrerá em 14 de junho em
-                    Moscou, uma paixão nacional já começou a entrar em campo com força total entre os fãs: completar o novo
-                    álbum de figurinhas, recorrente desde a Copa de 1970 e fabricado pela italiana Panini. A edição de 2018
-                    conta com 682 cromos, contra 640 da edição de 2014. Engana-se quem pensa que a tecnologia acabou com
-                    a tradição dos colecionadores, que muitas vezes passam de geração em geração guardando e conseguindo
-                    os exemplares mais recentes do evento. Tradição que pode ser rentável no futuro: uma réplica do álbum
-                    da Copa do Mundo de 1970 junto com os 288 cromos pode sair mais de R$ 1 mil em um dos marketplaces mais
-                    populares do Brasil. </p>
-                <br>
-                <a href="#" target="_blank">Ver mais</a>
+            <div class="variable slider">
+                <img src="assets/img/bola01.jpg">
+                <img src="assets/img/bola02.jpg">
+                <img src="assets/img/camisaazul01.jpg">
+                <img src="assets/img/mochila01.jpg">
+                <img src="assets/img/album01.jpg">
             </div>
         </div>
     </section>
@@ -206,20 +201,19 @@
                 <div class="final-inst">
                         
                 <ul class="ul-list">
-                        <li>
+                    <li>
                             <a href="#" class="minhaconta">Acesse nossa newslatter</a>
                     </li>
                     <li class="search">
                         <form>
-                        <input type="search" placeholder="Pesquisar">
-                    </form>
+                            <input type="email" id="campo_email" placeholder="Pesquisar">
+                        </form>
                     </li>
-                
-                        <li class="face">
+                    <li class="face">
                         <a href="www.facebook.com"><img src="assets/img/face.png" alt=""></a>
                         <a href="www.facebook.com"><img src="assets/img/face.png" alt=""></a>
                         <a href="www.facebook.com"><img src="assets/img/face.png" alt=""></a>
-                        <a href="www.facebook.com"><img src="assets/img/face.png" alt=""></a>
+                        
                     </li>
                 </ul>
 
@@ -227,6 +221,115 @@
         </div>
     </section>
     <footer class="main-footer" align="center">Todos os direitos reservados.</footer>
+
+    <!-- bibliotecas jquery utilizadas -->
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="jquery/slick.min.js"></script>
+    <!-- javascript/jquery  -->
+    <script>
+        "use strict"; //obriga inicializar todas as variaveis
+        //variaveis
+        var $campo_busca = document.getElementById('campo-busca');
+        var $div_sugestoes = document.getElementById('main-sugestoes');
+        var $div_resultados = document.getElementById('main-resultados');
+        var $campo_email = $('#campo_email');
+        //var $campo_email = document.getElementById('campo_email');
+        //slick
+        $(".variable").slick({
+            dots: true,
+            infinite: true,
+            variableWidth: true
+        });
+        //array de sugestoes
+        var $ar_sugestoes_produtos = [
+            "Detergente",
+            "Cafe",
+            "Erva",
+            "Cerveja"
+        ];
+        //array de produtos
+        var $ar_resultado_busca = [
+            {
+                "nome": "Bola Futebol nike",
+                "preco": 10.5,
+                "img": "assets/img/bola01.jpg",
+                "link": "http://compasso.com.br"
+
+            },
+            {
+                "nome": "Bola Futebol nike",
+                "preco": 10.5,
+                "img": "assets/img/bola01.jpg",
+                "link": "http://compasso.com.br"
+
+            },
+            {
+                "nome": "Bola Futebol nike",
+                "preco": 10.5,
+                "img": "assets/img/bola01.jpg",
+                "link": "http://compasso.com.br"
+            }
+        ];
+        //function de pegar sugestoes
+        function renderizaSugestoes() {
+            var $retorno = "";
+            for (var $i in $ar_sugestoes_produtos) {
+                $retorno += "<p>" + $ar_sugestoes_produtos[$i] + "</p><br>";
+            };
+            $div_sugestoes.innerHTML = $retorno;
+        };
+        //function de resultado da busca
+        function renderizaResultadoBusca() {
+            var $retorno = "";
+            for (var $i in $ar_resultado_busca) {
+                $retorno += "<div>" + "<h3>" + $ar_resultado_busca[$i].nome + "</h3>" +
+                    "<p>" + $ar_resultado_busca[$i].preco + "</p>" +
+                    "<img src='" + $ar_resultado_busca[$i].img + "'>" + "<br>" +
+                    "<a href='" + $ar_resultado_busca[$i].link + "'>Veja mais</a>" +
+                    "</div>";
+            }
+            $div_resultados.innerHTML = $retorno;
+        };
+        renderizaSugestoes();
+        renderizaResultadoBusca()
+        $campo_busca.onfocus = function () {
+            console.log('entrou no campo');
+            $div_sugestoes.style.display = "block";
+        }
+        $campo_busca.onblur = function () {
+            console.log('saiu no campo');
+            $div_sugestoes.style.display = "none";
+            $div_resultados.style.display = "none";
+        };
+        $campo_busca.onkeyup = function () {
+            console.log('entrou no campo');
+            $div_sugestoes.style.display = "none";
+            $div_resultados.style.display = "block";
+        }
+
+        $campo_email.bind('keydown', function(e) {
+             if(e.keyCode == 13) { // se pressionar enter
+                e.preventDefault();
+                //3 carcteres
+                if($campo_email.val().length < 3){
+                    alert("Digite no minimo 3 caracteres");
+                    $campo_email.val("");
+                    return false;
+                }        
+                //sem o @
+                //cadastro meio certo
+                if(($campo_email.val().length > 3) && ($campo_email.val("@"))){
+                    alert("Cadastrado com sucesso");
+                    $campo_email.val("");
+                    return false;
+                }  
+                
+            }
+         });
+
+            
+    </script>
 </body>
 
 </html>

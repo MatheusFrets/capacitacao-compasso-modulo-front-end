@@ -66,6 +66,8 @@
         ];
 
 cl($ar_resultado_busca);
+
+
         function renderizaSugestoes(){
             var $retorno = "";
             for(var $i in $ar_sugestoes_produtos){
@@ -84,21 +86,6 @@ cl($ar_resultado_busca);
         };
 
         $campo_busca.onfocus = function(){
-            cl('entrou no campo');
-            $container_resultados.style.display = "block";
-
-            if(this.value.lenght === 0){
-                cl('exibe sugestoes esconde lista');
-                $sugestoes_produtos.style.display = "block";
-                $resultado_busca.style.display = "none";
-            }else{
-                cl('exibe lista esconde lista');
-                $sugestoes_produtos.style.display = "none";
-                $resultado_busca.style.display = "block";
-            }
-        };
-
-        $campo_busca.onfocu = function(){
             cl('entrou no campo');
             $container_resultados.style.display = "block";
 
